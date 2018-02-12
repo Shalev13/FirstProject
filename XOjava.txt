@@ -1,0 +1,510 @@
+package com.example.user.x_o;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnC, btnWins;
+    private char sign;
+    private int count, winX, winO;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btn1 = (Button) findViewById(R.id.btn1);
+        btn2 = (Button) findViewById(R.id.btn2);
+        btn3 = (Button) findViewById(R.id.btn3);
+        btn4 = (Button) findViewById(R.id.btn4);
+        btn5 = (Button) findViewById(R.id.btn5);
+        btn6 = (Button) findViewById(R.id.btn6);
+        btn7 = (Button) findViewById(R.id.btn7);
+        btn8 = (Button) findViewById(R.id.btn8);
+        btn9 = (Button) findViewById(R.id.btn9);
+        btnC = (Button) findViewById(R.id.btnC);
+        btnWins = (Button) findViewById(R.id.btnWins);
+        sign = 1;
+        count = 0;
+        winX = 0;
+        winO = 0;
+    }
+
+    public void click1(View view) {
+        if ((!btn1.getText().equals("X")) && (!btn1.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn1.setText("X");
+                sign = 2;
+            } else {
+                btn1.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+
+    public void click2(View view) {
+        if ((!btn2.getText().equals("X")) && (!btn2.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn2.setText("X");
+                sign = 2;
+            } else {
+                btn2.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click3(View view) {
+        if ((!btn3.getText().equals("X")) && (!btn3.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn3.setText("X");
+                sign = 2;
+            } else {
+                btn3.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click4(View view) {
+        if ((!btn4.getText().equals("X")) && (!btn4.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn4.setText("X");
+                sign = 2;
+            } else {
+                btn4.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click5(View view) {
+        if ((!btn5.getText().equals("X")) && (!btn5.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn5.setText("X");
+                sign = 2;
+            } else {
+                btn5.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click6(View view) {
+        if ((!btn6.getText().equals("X")) && (!btn6.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn6.setText("X");
+                sign = 2;
+            } else {
+                btn6.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click7(View view) {
+        if ((!btn7.getText().equals("X")) && (!btn7.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn7.setText("X");
+                sign = 2;
+            } else {
+                btn7.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click8(View view) {
+        if ((!btn8.getText().equals("X")) && (!btn8.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn8.setText("X");
+                sign = 2;
+            } else {
+                btn8.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void click9(View view) {
+        if ((!btn9.getText().equals("X")) && (!btn9.getText().equals("O"))) {
+            count++;
+            if (sign == 1) {
+                btn9.setText("X");
+                sign = 2;
+            } else {
+                btn9.setText("O");
+                sign = 1;
+            }
+        }
+        if (count == 9) {
+            Toast.makeText(this, "תיקו - אין מנצח", Toast.LENGTH_SHORT).show();
+            count = 0;
+        }
+        if (((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn2.getText())) && (btn2.getText().equals(btn3.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("X"))) ||
+                ((btn4.getText().equals(btn5.getText())) && (btn5.getText().equals(btn6.getText())) && (btn4.getText().equals("O"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("X"))) ||
+                ((btn7.getText().equals(btn8.getText())) && (btn8.getText().equals(btn9.getText())) && (btn7.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn4.getText())) && (btn4.getText().equals(btn7.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("X"))) ||
+                ((btn2.getText().equals(btn5.getText())) && (btn5.getText().equals(btn8.getText())) && (btn2.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn6.getText())) && (btn6.getText().equals(btn9.getText())) && (btn3.getText().equals("O"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("X"))) ||
+                ((btn1.getText().equals(btn5.getText())) && (btn5.getText().equals(btn9.getText())) && (btn1.getText().equals("O"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("X"))) ||
+                ((btn3.getText().equals(btn5.getText())) && (btn5.getText().equals(btn7.getText())) && (btn3.getText().equals("O")))
+                ) {
+            if (sign == 2) {
+                Toast.makeText(this, "המנצח הוא X", Toast.LENGTH_SHORT).show();
+                winX++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            } else {
+                Toast.makeText(this, "המנצח הוא O", Toast.LENGTH_SHORT).show();
+                winO++;
+                String st = "Results\n";
+                st += "X wins: " + winX + "\n";
+                st += "O wins: " + winO + "\n";
+                btnWins.setText(st);
+            }
+            count = 0;
+        }
+    }
+
+    public void clickC(View view) {
+        btn1.setText(null);
+        btn2.setText(null);
+        btn3.setText(null);
+        btn4.setText(null);
+        btn5.setText(null);
+        btn6.setText(null);
+        btn7.setText(null);
+        btn8.setText(null);
+        btn9.setText(null);
+        count = 0;
+    }
+}
+
